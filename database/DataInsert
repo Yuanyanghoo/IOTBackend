@@ -2,16 +2,24 @@ create schema iot;
 
 use iot;
 
-create table beacon_data (
-
-beacon_id varchar(10),
-uuid char(12),
-count int,
-timestamp varchar(100)
+CREATE TABLE beacon_data (
+  beacon_id varchar(10),
+  uuid char(12),
+  timestamp varchar(100)
 );
 
-INSERT INTO `beacon_data` (`beacon_id`, `uuid`, `count`, `timestamp`) VALUES
-('iot37', 'c5770798b9ea', 30, '2017-03-18T11:52:58+08:00'),
-('iot36', 'e32025ede097', 40, '2017-03-18T11:52:58+08:00'),
-('iot35', 'd4b73d888fe2', 20, '2017-03-18T11:52:58+08:00'),
-('iot34', 'eefc90b88dfa', 50, '2017-03-18T11:52:58+08:00');
+INSERT INTO `beacon_data` (`beacon_id`, `uuid`, `timestamp`) VALUES
+('iot37', 'c5770798b9ea', '2017-03-18 13:27:53'),
+('iot36', 'e32025ede097', '2017-03-18 13:27:53'),
+('iot35', 'd4b73d888fe2', '2017-03-18 13:27:53'),
+('iot34', 'eefc90b88dfa', '2017-03-18 13:27:53'),
+('iot40', 'qwu2840dhwl1', '2017-03-18 13:27:53'),
+('iot37', 'c5770798b9ea', '2017-03-18 13:29:53'),
+('iot36', 'e32025ede097', '2017-03-18 13:29:53'),
+('iot35', 'd4b73d888fe2', '2017-03-18 13:29:53'),
+('iot34', 'eefc90b88dfa', '2017-03-18 13:29:53'),
+('iot40', 'qwu2840dhwl1', '2017-03-18 13:29:53'),
+('iot37', 'c5770798b9ea', '2017-03-18 13:27:53'),
+('iot36', 'e32025ede097', '2017-03-18 13:27:53'),
+('iot35', 'd4b73d888fe2', '2017-03-18 13:27:53'),
+('iot34', 'eefc90b88dfa', '2017-03-18 13:27:53');

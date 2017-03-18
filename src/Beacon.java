@@ -1,3 +1,4 @@
+package model;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,14 +13,12 @@ public class Beacon {
     
     private String beaconID;
     private String uuid;
-    private int count;
     private String timestamp;
 
     
-    public Beacon(String beaconID, String uuid, int count, String timestamp) {
+    public Beacon(String beaconID, String uuid, String timestamp) {
         this.beaconID = beaconID;
         this.uuid = uuid;
-        this.count = count;
         this.timestamp = timestamp;
     }
     
@@ -39,13 +38,6 @@ public class Beacon {
         this.uuid = uuid;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
 
     public String getTimestamp() {
         return timestamp;

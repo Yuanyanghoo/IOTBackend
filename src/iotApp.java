@@ -1,4 +1,5 @@
 
+import dao.DataManager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,17 +10,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Beacon;
 
 public class iotApp {
 
     public static void main(String[] args) {
      DataManager dm = new DataManager();
-     ArrayList<Beacon> list = dm.retrieveData();
-
+     ArrayList<Beacon> list = dm.retrieveIntervalData("2017-03-18 13:25:00","2017-03-18 13:30:00");
+     //Beacon be = new Beacon("iot40","qwu2840dhwl1","2017-03-18 13:29:53");
+     //System.out.println(dm.updateData(be));
+     
      for (int i = 0 ; i < list.size(); i++) {
          Beacon b = list.get(i);
-         System.out.println(b.getTimestamp() + " | " + b.getBeaconID() + " - " + b.getUuid() + " : " + b.getCount());
+         System.out.println(b.getTimestamp() + " | " + b.getBeaconID() + " - " + b.getUuid());
      }
+
     }
     
 }
