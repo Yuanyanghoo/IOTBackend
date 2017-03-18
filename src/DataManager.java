@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +20,8 @@ import java.util.logging.Logger;
  */
 public class DataManager {
         
-    public HashMap<Integer, Integer> retrieveData() {
-
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    public ArrayList<Beacon> retrieveData() {
+        ArrayList<Beacon> list = new ArrayList<>();
         Connection conn = new ConnectionManager().getConnection();
         
         try {
@@ -31,9 +31,11 @@ public class DataManager {
             ResultSet set = stmt.executeQuery();
 
             while (set.next()) {
-                int beaconID = set.getInt(1);
-                int count = set.getInt(2);
-                map.put(beaconID, count);
+                String beaconID = set.getString(1);
+                String uuid = set.getString(2);
+                int count = set.getInt(3);
+                String timestamp = set.getString(4);
+                list.add(new Beacon(beaconID,uuid,count,timestamp));
             }
 
         } catch (SQLException e) {
@@ -46,6 +48,6 @@ public class DataManager {
             }
         }
         
-        return map;
+        return list;
     }
 }

@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -13,16 +14,12 @@ public class iotApp {
 
     public static void main(String[] args) {
      DataManager dm = new DataManager();
-     HashMap<Integer,Integer> map = dm.retrieveData();
-     Iterator<Integer> iter = map.keySet().iterator();
-     
-     System.out.println("Printing dataset..");
-     System.out.println();
-     while(iter.hasNext()) {
-         int beaconID = iter.next();
-         System.out.println(beaconID + ": " + map.get(beaconID));
+     ArrayList<Beacon> list = dm.retrieveData();
+
+     for (int i = 0 ; i < list.size(); i++) {
+         Beacon b = list.get(i);
+         System.out.println(b.getTimestamp() + " | " + b.getBeaconID() + " - " + b.getUuid() + " : " + b.getCount());
      }
-    
     }
     
 }
